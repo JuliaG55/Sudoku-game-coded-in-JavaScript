@@ -1,0 +1,240 @@
+html, body {      /* CSS FOR BODY IN ALL PAGES*/
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
+body.index{		
+	background-image: url("../images/background1.jpg"); /* BACKGROUND FOR INDEX.PHP */
+	background-position: center 0;
+}
+body.home{
+	background-image: url("../images/backgroundBody2.jpg");  /* BACKGROUND FOR MAIN.PHP */
+	background-position: center 0;
+}
+body.about{
+	background-image: url("../images/backgroundBody3.jpg"); /* BACKGROUND FOR ABOUT.PHP */
+	background-position: center 0;
+}
+
+.header {			/* CSS FOR HEADER IN INDEX.PHP*/
+	/*display: flex;*/
+	float: right;
+	width: 50%;
+	padding: 13px;
+	background: #C1AE6E;
+	margin: 20px;
+	margin-right: 60px;
+	font-family: 'Marko One';font-size: 22px;
+}
+#sudoku {
+	margin-left: 100px;
+    padding-left: 100px;
+}
+
+.auth {
+	float: right;
+	width: 100%;
+}
+
+.login, .register {		/* CSS FOR HEADER IN INDEX.PHP*/
+	float: right;
+	width: 22%;
+	background: #E3DCC9;
+	margin: 10px;
+	padding: 15px;
+	margin-right: 60px;
+}
+
+.form-group {
+	width: 100px;
+	margin: 20px;
+
+}
+
+.form-group input {
+	display: block;
+}
+
+
+.clearfix {
+	float: right;
+	
+}
+
+#footer {		/* CSS FOR FOOTER IN ALL PAGES */
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background: #C1AE6E;
+	text-align: center;
+}
+
+.nav {			/* CSS FOR NAVIGARTION BAR IN MAIN.PHP */
+	padding:0;
+	margin:0;
+	background-color: #C1AE6E;
+	font-size: 28px;
+}
+
+.nav ul {
+	padding:35px 0px;
+	margin:0;	
+	list-style:none;
+	text-align:center;
+}
+
+.nav ul li {
+	padding:0px 30px;
+	display:inline;
+}
+
+#frame {
+	margin: 0 auto;
+	display: block;
+}
+
+#sidebar {		/* CSS FOR SIDE BAR IN INDEX.PHP*/
+	float: right;
+	width: 200px;
+	background: #C1AE6E;
+	margin-top: 50px;
+	padding: 10px;
+}
+
+body.home {
+	        background-color: #FAFAFA
+	      }
+body.home td {
+	        border: 1px solid #000000;
+	        text-align: center;
+	        vertical-align: middle;  
+	      }
+
+#frameOfAllSudoku{		/* CSS FOR SUDOKU SQUARES */
+	padding-top: 50px;
+	padding-left: 100px;
+	float: left;
+}
+
+#frameOfAllSudoku input {
+	color: #000000;
+	background-color: #FFFFFF;
+	text-align: center;
+	width: 48px;
+	height: 48px;
+	padding: 2px;
+	border: 2px;
+	font-size: 24px;
+}
+input:disabled {
+	background-color: #EEEEEE;
+}
+
+#frameOfAllSudoku input.tile.static {		/* set the default colour to black */
+	color: black;
+}
+#frameOfAllSudoku input.tile.placed {		/* set the right input to green  */
+	color: green;
+}
+#frameOfAllSudoku input.tile.misplaced {	/* set the wrong input to red  */
+	color: red;
+}
+
+
+#GameControls {
+	float: left;
+	padding: 90px;
+
+}
+
+
+.button {				/* CSS FOR BUTTONS IN MAIN 
+							PAGE(NEW GAME, CLEAR ALL AND DELETE) */
+	display: block;
+	font-size: 17px;
+	width: 200px;
+	background: #EEEEEE;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	color: #333;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+.button:hover {
+	background: #333;
+	color: #C1AE6E;
+}
+
+.timer {				/* CSS FOR TIMER */
+	padding-top: 50px;
+}
+
+.stats {
+	display: block;
+	font-size: 17px;
+	width: 200px;
+	background: #EEEEEE;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	color: #333;
+	border-radius: 5px;
+	margin: 5px;
+}
+.statsTime {
+	display: inline-block;
+	font-size: 17px;
+	width: 200px;
+	background: #EEEEEE;
+	line-height: 20px;
+	text-align: center;
+	font-weight: bold;
+	color: #333;
+	border-radius: 5px;
+	margin: 5px;
+}
+.statsTime > p{
+	display: inline-block;
+}
+#container {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.rankingTable {			/* CSS FOR RANKING TABLE IN RANKINGTABLE.PHP */
+    padding: 20px 100px 20px 100px;
+}
+
+.rankingTable table {
+    border: 1em #c1ad6f;
+    width: 100%;
+}
+.rankingTable th  {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    font-size: 30px;
+}
+.rankingTable td  {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    font-size: 30px;
+}
+.rankingTable tr {
+    background-color: #dddddd;
+}
+.textofabout {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 5px 5px 5px 5px;
+}
+
