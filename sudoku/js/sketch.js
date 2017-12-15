@@ -12,7 +12,8 @@ var defaultState = [
 ];
 
 window.state = defaultState;
-
+//this is used to start the timer (when a user enters a number into the box)
+flag = 0; 
 window.onload = function () {
 	setDefaultState();
 	document.querySelectorAll('.tile:not(:disabled)').forEach((el) => {
@@ -31,8 +32,11 @@ function setDefaultState() {
 		}
 	}
 }
-
 function numberAdded(e) {
+  if (flag === 0){
+  watch.start();
+  }
+  flag +=1;
 	let code = e.keyCode || e.which;
 	let el = e.target;
 
@@ -146,8 +150,7 @@ function Stopwatch(elem) {
     this.isOn = true;
     var okeyTime = time;
     okeyDisplayS = timeFormatter(time);
-    window.onload = () => watch.start()
-  };
+  //};
 
   } 
 //When checking on console - watch.save(); 
@@ -156,45 +159,48 @@ function Stopwatch(elem) {
   	//okeyDisplay = timeFormatter(time);
   	console.log(okeyTime);
   }
-//When checking on console - watch.score(); 
-   this.socre = function(){	// count the time to the score 
-   	if (time < 35700 ){  // If 1min 40s is about ~10k, then 35700 is about 5min.
-   		// userObj.score += 100;
-   		var usrObj = JSON.parse(localStorage[localStorage.loggedInUsrEmail]);
-   		// setScore(100);
-  		console.log("Adding the score 100 to a user");
-   	}
-   	else if( 60000 < time > 35700){
-   		// userObj.score += 90;
-   		console.log("Adding the score 90 to a user");
-   	}
-   	else if( 70000 < time > 60000){
-   		console.log("Adding the score 80 to a user");
-   	}
-   	else if( 80000 < time > 70000){
-   		console.log("Adding the score 70 to a user");
-   	}
-   	else if( 90000 < time > 80000){
-   		console.log("Adding the score 60 to a user");
-   	}
-   	else if( 100000 < time > 90000){
-   		console.log("Adding the score 50 to a user");
-   	}
-   	else if( 11000 < time > 100000){
-   		console.log("Adding the score 40 to a user");
-   	}
-   	else if( 120000 < time > 110000){
-   		console.log("Adding the score 30 to a user");
-   	}
-   	else if( 13000 < time > 120000){
-   		console.log("Adding the score 20 to a user");
-   	}
-   	else ( 140000 < time > 130000){
-   		console.log("Adding the score 10 to a user");
-   	}
+// //When checking on console - watch.score(); 
+//    this.socre = function(){	// count the time to the score 
+//    	if (time < 35700 ){  // If 1min 40s is about ~10k, then 35700 is about 5min.
+//    		// userObj.score += 100;
+//    		var usrObj = JSON.parse(localStorage[localStorage.loggedInUsrEmail]);
+//    		// setScore(100);
+//   		console.log("Adding the score 100 to a user");
+//    	}
+//     //if ((6000<times) || (time > 35700)){
+//       //}
+//     }
+//    	else if( 60000 < time > 35700){
+//    		// userObj.score += 90;
+//    		console.log("Adding the score 90 to a user");
+//    	}
+//    	else if( 70000 < time > 60000){
+//    		console.log("Adding the score 80 to a user");
+//    	}
+//    	else if( 80000 < time > 70000){
+//    		console.log("Adding the score 70 to a user");
+//    	}
+//    	else if( 90000 < time > 80000){
+//    		console.log("Adding the score 60 to a user");
+//    	}
+//    	else if( 100000 < time > 90000){
+//    		console.log("Adding the score 50 to a user");
+//    	}
+//    	else if( 11000 < time > 100000){
+//    		console.log("Adding the score 40 to a user");
+//    	}
+//    	else if( 120000 < time > 110000){
+//    		console.log("Adding the score 30 to a user");
+//    	}
+//    	else if( 13000 < time > 120000){
+//    		console.log("Adding the score 20 to a user");
+//    	}
+//    	else ( 140000 < time > 130000){
+//    		console.log("Adding the score 10 to a user");
+//    	}
    		   	
 
-//   } 
+// //   } 
 //When checking on console - watch.stop(); 
   this.stop = function() {
     clearInterval(interval);
