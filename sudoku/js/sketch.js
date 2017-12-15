@@ -29,8 +29,9 @@ var defaultState = [
 ];
 
 window.state = defaultState;
-//this is used to start the timer (when a user enters a number into the box)
-flag = 0; 
+
+flag = 0; //this is used to start the timer (when a user enters a number into the box)
+
 window.onload = function () {
 	setDefaultState();
 	document.querySelectorAll('.tile:not(:disabled)').forEach((el) => {
@@ -63,9 +64,7 @@ function numberAdded(e) {
 	let [x, y] = el.id.split('-');
 
 	el.className = checkCorrectMove(parseInt(el.value), x, y) ? 'tile placed' : 'tile misplaced'
-gameOver(e);
-	//if (checkWin()) alert("You won.")
-
+  gameOver(e);
 	state[x][y] = parseInt(el.value);
 }
 
@@ -96,22 +95,9 @@ function checkCorrectMove(number, x, y) {
 	return ! (horizontalDuplicate || verticalDuplicate || squareDuplicate);
 }
 
-// check when the user win 
-function checkWin () {
-
-	for (line in state) {
-		for (tile in state[line]) {
-			let el = document.getElementById(`${line}-${tile}`);
-
-			if (el.className !== 'tile static' && el.className !== 'tile placed') {
-				return false
-			} 
-		}
-	}
-
-	return true
-}
-
+// check when the game is finish
+// the timer will stop automatically after the last correct input
+// if the player does not compleat it correctly the timer will continue until the player will compleate it corretly
 function gameOver(e) {
   let el = e.target;
   
@@ -125,7 +111,7 @@ function gameOver(e) {
     }
   }
   if(isGameOver === true){
-  watch.stop(); // when the game is correctly finished it will stop the timer if not it will continue until you finish it correcty
+  watch.stop();
   console.log("stoping watch game is over");
 
   }
@@ -190,7 +176,7 @@ function Stopwatch(elem) {
   //};
 
   } 
-//When checking on console - watch.save(); 
+// the purpose of saving the time for the user is to output and compare the score
   this.save = function(){
   	var okeyTime = time;
   	//okeyDisplay = timeFormatter(time);
@@ -204,29 +190,29 @@ function Stopwatch(elem) {
    		// setScore(100);
   		console.log("Adding the score 100 to a user");
    	}
-    //times>60000  
-    else if ((60000<times) || (time > 35700)){
+    //>60000  
+    else if ((times < 60000) || (time > 35700)){
       console.log("Adding the score 90 to a user");
     }
-    else if ((7000<times) || (time > 60000)){
+    else if ((times < 7000) || (time > 60000)){
       console.log("Adding the score 80 to a user");
     }
-   	else if ((80000<times) || (time > 70000)){
+   	else if ((times < 80000) || (time > 70000)){
       console.log("Adding the score 70 to a user");
     }
-    else if ((90000<times) || (time > 80000)){
+    else if ((times < 90000) || (time > 80000)){
       console.log("Adding the score 60 to a user");
     }
-    else if ((100000<times) || (time > 90000)){
+    else if ((times < 100000) || (time > 90000)){
       console.log("Adding the score 50 to a user");
     }
-    else if ((110000<times) || (time > 100000)){
+    else if ((times < 110000) || (time > 100000)){
       console.log("Adding the score 40 to a user");
     }
-    else if ((120000<times) || (time > 110000)){
+    else if ((times < 120000) || (time > 110000)){
       console.log("Adding the score 30 to a user");
     }
-    else if ((130000<times) || (time > 120000)){
+    else if ((times < 130000) || (time > 120000)){
       console.log("Adding the score 20 to a user");
     }
     else {
