@@ -7,7 +7,7 @@ function print_footer()
 			<div id="footer">
 				<p> &copy; 2017 Julia Gabajova for <a href="http://www.mdx.ac.uk/">Middlesex University</a></p>
 
-				  <script type="text/javascript" src="js/main.js"></script>
+				  <script type="text/javascript" src="js/sketch.js"></script>
   				  <script type="text/javascript" src="js/login.js"></script>
 
 		    </div> <!--end of footer-->
