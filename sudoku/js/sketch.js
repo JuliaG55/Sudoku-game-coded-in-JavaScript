@@ -1,14 +1,31 @@
 // set the default state
+/*
+// This default state I am using for checking my right output for 
 var defaultState = [
-	[3, 0, 0, 6, 1, 0, 0, 0, 8],
-	[0, 0, 2, 0, 3, 0, 7, 6, 0],
-	[0, 0, 0, 7, 5, 0, 2, 9, 0],
-	[0, 9, 0, 8, 0, 0, 0, 1, 0],
-	[0, 4, 0, 1, 7, 3, 0, 5, 0],
-	[0, 5, 0, 0, 0, 9, 0, 2, 0],
-	[0, 3, 7, 0, 4, 1, 0, 0, 0],
-	[0, 2, 5, 0, 8, 0, 9, 0, 0],
-	[4, 0, 0, 0, 9, 7, 0, 0, 2]
+        [0, 3, 4, 6, 7, 8, 9, 1, 2], //deleted 5 insted of 0
+        [6, 7, 2, 1, 9, 5, 3, 4, 8],
+        [1, 9, 8, 3, 4, 2, 5, 6, 7],
+        
+        [8, 5, 9, 7, 6, 1, 4, 2, 3],
+        [4, 2, 6, 8, 5, 3, 7, 9, 1],
+        [7, 1, 3, 9, 2, 4, 8, 5, 6],
+        
+        [9, 6, 1, 5, 3, 7, 2, 8, 4],
+        [2, 8, 7, 4, 1, 9, 6, 3, 5],
+        [3, 4, 5, 2, 8, 6, 1, 7, 9],
+        ];
+        */
+
+var defaultState = [
+  [3, 0, 0, 6, 1, 0, 0, 0, 8],
+  [0, 0, 2, 0, 3, 0, 7, 6, 0],
+  [0, 0, 0, 7, 5, 0, 2, 9, 0],
+  [0, 9, 0, 8, 0, 0, 0, 1, 0],
+  [0, 4, 0, 1, 7, 3, 0, 5, 0],
+  [0, 5, 0, 0, 0, 9, 0, 2, 0],
+  [0, 3, 7, 0, 4, 1, 0, 0, 0],
+  [0, 2, 5, 0, 8, 0, 9, 0, 0],
+  [4, 0, 0, 0, 9, 7, 0, 0, 2]
 ];
 
 window.state = defaultState;
@@ -46,8 +63,8 @@ function numberAdded(e) {
 	let [x, y] = el.id.split('-');
 
 	el.className = checkCorrectMove(parseInt(el.value), x, y) ? 'tile placed' : 'tile misplaced'
-
-	if (checkWin()) alert("You won.")
+gameOver(e);
+	//if (checkWin()) alert("You won.")
 
 	state[x][y] = parseInt(el.value);
 }
@@ -81,6 +98,7 @@ function checkCorrectMove(number, x, y) {
 
 // check when the user win 
 function checkWin () {
+
 	for (line in state) {
 		for (tile in state[line]) {
 			let el = document.getElementById(`${line}-${tile}`);
@@ -92,6 +110,25 @@ function checkWin () {
 	}
 
 	return true
+}
+
+function gameOver(e) {
+  let el = e.target;
+  
+  isGameOver = true;
+  for (x = 0; x < 9; x++){
+    for (y = 0; y < 9; y++){  
+
+      if ((defaultState[x][y] === 0) && (checkCorrectMove(el.value, x, y))){
+        isGameOver = false;
+      }
+    }
+  }
+  if(isGameOver === true){
+  watch.stop(); // when the game is correctly finished it will stop the timer if not it will continue until you finish it correcty
+  console.log("stoping watch game is over");
+
+  }
 }
 // STOPE WATCH!!
 var timer = document.getElementById('timer');
@@ -167,6 +204,7 @@ function Stopwatch(elem) {
    		// setScore(100);
   		console.log("Adding the score 100 to a user");
    	}
+    //times>60000  
     else if ((60000<times) || (time > 35700)){
       console.log("Adding the score 90 to a user");
     }
@@ -191,18 +229,17 @@ function Stopwatch(elem) {
     else if ((130000<times) || (time > 120000)){
       console.log("Adding the score 20 to a user");
     }
-    else ((140000<times) || (time > 130000)){
+    else {
       console.log("Adding the score 10 to a user");
     }
    		   	
-
-//   } 
+ } 
 //When checking on console - watch.stop(); 
   this.stop = function() {
     clearInterval(interval);
     interval = null;
     this.isOn = false;
-    window.onload = () => watch.stop()
+    
   };
 //When checking on console - watch.reset(); 
   this.reset = function() {
