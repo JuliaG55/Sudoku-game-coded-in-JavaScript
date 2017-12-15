@@ -89,7 +89,7 @@ function checkWin () {
 
 	return true
 }
-/// STOPE WATCH!!
+// STOPE WATCH!!
 var timer = document.getElementById('timer');
 var watch = new Stopwatch(timer);
 
@@ -146,6 +146,7 @@ function Stopwatch(elem) {
     this.isOn = true;
     var okeyTime = time;
     okeyDisplayS = timeFormatter(time);
+    window.onload = () => watch.start()
   };
 
   } 
@@ -167,13 +168,39 @@ function Stopwatch(elem) {
    		// userObj.score += 90;
    		console.log("Adding the score 90 to a user");
    	}
+   	else if( 70000 < time > 60000){
+   		console.log("Adding the score 80 to a user");
+   	}
+   	else if( 80000 < time > 70000){
+   		console.log("Adding the score 70 to a user");
+   	}
+   	else if( 90000 < time > 80000){
+   		console.log("Adding the score 60 to a user");
+   	}
+   	else if( 100000 < time > 90000){
+   		console.log("Adding the score 50 to a user");
+   	}
+   	else if( 11000 < time > 100000){
+   		console.log("Adding the score 40 to a user");
+   	}
+   	else if( 120000 < time > 110000){
+   		console.log("Adding the score 30 to a user");
+   	}
+   	else if( 13000 < time > 120000){
+   		console.log("Adding the score 20 to a user");
+   	}
+   	else ( 140000 < time > 130000){
+   		console.log("Adding the score 10 to a user");
+   	}
+   		   	
 
-  } 
+//   } 
 //When checking on console - watch.stop(); 
   this.stop = function() {
     clearInterval(interval);
     interval = null;
     this.isOn = false;
+    window.onload = () => watch.stop()
   };
 //When checking on console - watch.reset(); 
   this.reset = function() {
