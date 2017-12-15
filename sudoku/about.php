@@ -18,7 +18,7 @@
   <div class="content">
   	<div class="textofabout">
     <h1>About Sudoku</h1>
-        <p>The popular Japanese puzzle game Sudoku is based on the logical placement of numbers. An online game of logic, Sudoku doesn’t require any calculation nor special math skills; all that is needed are brains and concentration. </p>
+        <p>The popular Japanese puzzle game Sudoku is based on the logical placement of numbers. An online game of logic, Sudoku does not require any calculation nor special math skills; all that is needed are brains and concentration. </p>
 
     <h1>How to play Sudoku</h1>
         <p>The goal of Sudoku is to fill in a 9 &times; 9 grid with digits so that each column, row, and 3 &times; 3 section contain the numbers between 1 to 9. At the beginning of the game, the 9 &times; 9 grid will have some of the squares filled in. Your job is to use logic to fill in the missing digits and complete the grid. Do not forget, a move is incorrect if: </p>
