@@ -1,2 +1,2 @@
 # sudoku
-website - sudoku - game
+First website created - with sudoku game
